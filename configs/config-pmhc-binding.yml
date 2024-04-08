@@ -1,0 +1,37 @@
+task: BA
+
+training:
+  gpu_device: 0
+  batch_size: 512
+  num_workers: 4
+  seed: 42
+  lr: 5.e-4
+  weight_decay: 1.e-2
+  max_epochs: 50
+  warm_epochs: 5
+  patience: 10
+  lr_scheduler: cosine
+  lr_decay_steps: 50
+  lr_decay_rate: 0.5
+  lr_decay_min_lr: 1.e-6
+  lambda_factor: 0.05
+  pretrained_epitope_model: checkpoints/pretrained/epitope-model-medium.pt
+  log_dir: logs/pretrained-pmhc-binding/v2/
+
+model:
+  num_epi_layers: 6
+  num_epi_heads: 4
+  embed_epi_dim: 512
+  num_mhc_layers: 6
+  in_mhc_dim: 45
+  embed_mhc_dim: 256
+  cross_attn_heads: 4
+  mhc_seq_len: 366
+  attn_dropout: 0.05
+  dropout: 0.2
+
+data:
+  data_path: data/pretrained/netMHCpan-MHC-I-BA-data.csv
+  hla_lib_path: data/hla_library.json
+  pep_cluster_path: data/pretrained/netmhcpan_pep_cluster_0.5.pkl
+  max_epi_len: 15

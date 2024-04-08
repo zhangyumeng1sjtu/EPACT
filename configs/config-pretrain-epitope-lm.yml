@@ -1,0 +1,28 @@
+task: epitope-lm
+
+training:
+  gpu_device: 1
+  batch_size: 512
+  num_workers: 4
+  seed: 42
+  lr: 1.e-4
+  weight_decay: 1.e-2
+  max_epochs: 150
+  warm_epochs: 20
+  patience: 10
+  lr_scheduler: cosine
+  lr_decay_steps: 150
+  lr_decay_rate: 0.5
+  lr_decay_min_lr: 1.e-6
+  log_dir: logs/pretrained-epitope-lm/
+
+model:
+  num_layers: 6
+  embed_dim: 512
+  num_heads: 4
+  max_seq_length: 26
+  attn_dropout: 0.05
+
+data: 
+  data_path: data/pretrained/epitopes_8_25.txt
+  max_epi_len: 25

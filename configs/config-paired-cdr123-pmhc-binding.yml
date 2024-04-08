@@ -1,0 +1,52 @@
+training:
+  gpu_device: 1
+  max_epochs: 50
+  log_dir: logs/paired-cdr123-pmhc-binding/
+  lr: 2.e-4
+  weight_decay: 1.e-2
+  warm_epochs: 5
+  lr_scheduler: cosine # [cosine, step]
+  lr_decay_steps: 50
+  lr_decay_rate: 0.5
+  lr_decay_min_lr: 1.e-6
+  patience: 20
+  non_binding_ratio: 5
+  contrasruce_loss_type: simclr # [simclr, triplet, simclr+triplet]
+  contrastive_loss_coef: 0.3 # [0.2, 0.3, 0.4]
+  pretrained_pmhc_model: checkpoints/pretrained/pmhc-BA-model-medium.pt 
+  pretrained_tcr_model: checkpoints/pretrained/paired-cdr123-model-medium.pt
+  train_batch_size: 100
+  test_batch_size: 512
+  num_workers: 4
+  seed: 42
+  temperature: 0.5    # [0.5, 0.7, 1.0]
+  margin: 0.4         # [0.2, 0.3, 0.4]
+
+model:
+  num_epi_layers: 6
+  num_epi_heads: 4
+  embed_epi_dim: 512 # 256
+  num_mhc_layers: 6 # 4
+  in_mhc_dim: 45
+  embed_mhc_dim: 256 # 128
+  mhc_seq_len: 366
+  num_tcr_layers: 6 
+  num_tcr_heads: 4 
+  embed_tcr_dim: 512 # 256
+  cross_attn_heads: 4 
+  embed_hid_dim: 512 # 256  
+  num_conv_layers: 2  
+  attn_dropout: 0.05  
+  dropout: 0.3        
+  projector_type: mlp
+  agg: cls          
+
+data:
+  use_cdr123: True
+  train_pmhc_path: data/binding/Full-TCR/pMHC-train-data.tsv
+  train_tcr_feat_path: data/binding/Full-TCR/train_paired_tcr_seq.pt
+  train_pos_data_path: data/binding/Full-TCR/Full-TCR-pMHC-Binding-train-data.csv
+  test_data_path: data/binding/Full-TCR/test_full_tcr_pmhc_VDJdb_data.csv
+  hla_lib_path: data/hla_library.json
+  kfold_data_path: data/binding/Full-TCR/k-fold-data
+  

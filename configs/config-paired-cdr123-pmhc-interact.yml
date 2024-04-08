@@ -1,0 +1,48 @@
+training:
+  gpu_device: 0
+  max_epochs: 100
+  log_dir: logs/paired-cdr123-pmhc-interact/
+  finetune: True
+  lr: 2.e-4
+  weight_decay: 1.e-2
+  warm_epochs: 10
+  lr_scheduler: cosine
+  lr_decay_steps: 100
+  lr_decay_rate: 0.5
+  lr_decay_min_lr: 1.e-6
+  patience: 30
+  pretrained_tcr_model: checkpoints/pretrained/paired-cdr123-model-medium.pt
+  pretrained_pmhc_model: checkpoints/pretrained/pmhc-BA-model-medium.pt
+  pretrained_tcr_pmhc_model: checkpoints/paired-cdr123-pmhc-binding/paired-cdr123-pmhc-binding-model-all.pt
+  cdr1a_coef: 0.3
+  cdr3a_coef: 0.6
+  contact_coef: 0.5
+  batch_size: 16
+  num_workers: 4
+  seed: 42
+
+model:
+  num_epi_layers: 6
+  num_epi_heads: 4
+  embed_epi_dim: 512 # 512
+  num_mhc_layers: 6 # 4
+  in_mhc_dim: 45
+  embed_mhc_dim: 256 # 256
+  mhc_seq_len: 366
+  num_tcr_layers: 6
+  num_tcr_heads: 4
+  embed_tcr_dim: 512 # 512
+  cross_attn_heads: 4
+  embed_hid_dim: 512 # 512
+  num_conv_layers: 2
+  attn_dropout: 0.05
+  dropout: 0.3
+  projector_type: mlp # [linear, mlp]
+  agg: cls            # [cls, attn, mean]
+
+data:
+  use_cdr123: True
+  train_data_path: data/structure/STCRDab_pdb_data.csv
+  pickle_path: data/structure/processed/closest
+  hla_lib_path: data/hla_library.json
+  epi_cluster_path: data/structure/epitope_cluster_0.8.pkl
