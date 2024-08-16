@@ -2,3 +2,5 @@ logs/
 data/*
 checkpoints/*
 __pycache__/
+dist/
+*.egg-info/
