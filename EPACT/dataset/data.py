@@ -97,7 +97,7 @@ class pMHCDataset(Dataset):
         mhc_seq = hla_allele_to_seq(mhc_allele, self.hla_library)
         assert mhc_seq is not None
         if self.mhc_pseudo_pos is not None:
-            mhc_seq = ''.join([mhc_seq[i] if len(mhc_seq) > i else 'X' for i in self.pmhc_pseudo_pos])
+            mhc_seq = ''.join([mhc_seq[i] if len(mhc_seq) > i else 'X' for i in self.mhc_pseudo_pos])
         return mhc_seq
     
     def __getitem__(self, idx):
@@ -140,7 +140,7 @@ class EpitopeMHCDataset(Dataset):
             print(mhc_allele)
         assert mhc_seq is not None
         if self.mhc_pseudo_pos is not None:
-            mhc_seq = ''.join([mhc_seq[i] if len(mhc_seq) > i else 'X' for i in self.pmhc_pseudo_pos])
+            mhc_seq = ''.join([mhc_seq[i] if len(mhc_seq) > i else 'X' for i in self.mhc_pseudo_pos])
         return mhc_seq
     
     def __getitem__(self, idx):
@@ -188,7 +188,7 @@ class PairedTCRpMHCDataset(Dataset):
         mhc_seq = hla_allele_to_seq(mhc_allele, self.hla_library)
         assert mhc_seq is not None
         if self.mhc_pseudo_pos is not None:
-            mhc_seq = ''.join([mhc_seq[i] if len(mhc_seq) > i else 'X' for i in self.pmhc_pseudo_pos])
+            mhc_seq = ''.join([mhc_seq[i] if len(mhc_seq) > i else 'X' for i in self.mhc_pseudo_pos])
         return mhc_seq
 
     def __getitem__(self, idx):
@@ -243,7 +243,7 @@ class PairedTCRpMHCInteractDataset(Dataset):
         mhc_seq = hla_allele_to_seq(mhc_allele, self.hla_library)
         assert mhc_seq is not None
         if self.mhc_pseudo_pos is not None:
-            mhc_seq = ''.join([mhc_seq[i] if len(mhc_seq) > i else 'X' for i in self.pmhc_pseudo_pos])
+            mhc_seq = ''.join([mhc_seq[i] if len(mhc_seq) > i else 'X' for i in self.mhc_pseudo_pos])
         return mhc_seq
     
     def __getitem__(self, idx):
@@ -299,7 +299,7 @@ class UnlabeledDataset(Dataset):
         mhc_seq = hla_allele_to_seq(mhc_allele, self.hla_library)
         assert mhc_seq is not None
         if self.mhc_pseudo_pos is not None:
-            mhc_seq = ''.join([mhc_seq[i] if len(mhc_seq) > i else 'X' for i in self.pmhc_pseudo_pos])
+            mhc_seq = ''.join([mhc_seq[i] if len(mhc_seq) > i else 'X' for i in self.mhc_pseudo_pos])
         return mhc_seq
     
     def __getitem__(self, idx):
