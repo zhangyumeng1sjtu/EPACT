@@ -6,7 +6,7 @@ This repository contains the source code for the paper [**Epitope-anchored contr
 
 EPACT is developed by a divide-and-conquer paradigm that combines **pre-training** on TCR or pMHC data and **transfer learning** to predict TCR$\alpha\beta$-pMHC binding specificity and interaction conformation via **epitope-anchored** **contrastive** **learning**.
 
-### Colab Notebook
+### Colab Notebook <a href="https://colab.research.google.com/github/zhangyumeng1sjtu/EPACT/blob/main/EPACT.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 ### Installation
 
