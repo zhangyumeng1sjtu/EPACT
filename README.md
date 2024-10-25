@@ -1,12 +1,12 @@
 ## EPACT: Epitope-anchored Contrastive Transfer Learning for Paired CD8+ T Cell Receptor-antigen Recognition
 
-This repository contains the source code for the paper [**Epitope-anchored contrastive transfer learning for paired CD8 T cell receptor-antigen recognition**](https://www.biorxiv.org/content/10.1101/2024.04.05.588255v1).
+This repository contains the source code for the paper [**Epitope-anchored contrastive transfer learning for paired CD8 T cell receptor-antigen recognition**](https://www.nature.com/articles/s42256-024-00913-8).
 
 ![model](./model.png)
 
 EPACT is developed by a divide-and-conquer paradigm that combines **pre-training** on TCR or pMHC data and **transfer learning** to predict TCR$\alpha\beta$-pMHC binding specificity and interaction conformation via **epitope-anchored** **contrastive** **learning**.
 
-### Colab Notebook <a href="https://colab.research.google.com/github/zhangyumeng1sjtu/EPACT/blob/main/EPACT.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+### Colab Notebook `<a href="https://colab.research.google.com/github/zhangyumeng1sjtu/EPACT/blob/main/EPACT.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>``</a>`
 
 ### Installation
 
@@ -27,9 +27,9 @@ EPACT is developed by a divide-and-conquer paradigm that combines **pre-training
    conda install pytorch==2.0.1 pytorch-cuda=11.7 -c pytorch -c nvidia # for CUDA 11.7
    pip install -r requirements.txt
    ```
-   
+
    Or download the Python package from PyPI.
-   
+
    ```python
    pip install epact==0.1.1
    ```
@@ -55,10 +55,10 @@ The following data and model checkpoints are available at [Zenodo](https://zenod
   ```bash
   # pretrain epitope masked language model.
   python scripts/pretrain/pretrain_plm.py --config configs/config-pretrain-epitope-lm.yml
-  
+
   # pretrain paired cdr3 masked language model.
   python scripts/pretrain/pretrain_plm.py --config configs/config-pretrain-cdr3-lm.yml
-  
+
   # pretrain paired cdr123 masked language model.
   python scripts/pretrain/pretrain_plm.py --config configs/config-pretrain-cdr123-lm.yml
   ```
@@ -67,7 +67,7 @@ The following data and model checkpoints are available at [Zenodo](https://zenod
   ```bash
   # pretrain peptide-MHC binding affinity model.
   python scripts/pretrain/pretrain_pmhc_model.py --config configs/config-pmhc-binding.yml
-  
+
   # pretrain peptide-MHC eluted ligand model.
   python scripts/pretrain/pretrain_pmhc_model.py --config configs/config-pmhc-elution.yml
   ```
@@ -79,7 +79,7 @@ The following data and model checkpoints are available at [Zenodo](https://zenod
   ```bash
   # finetune Paired TCR-pMHC binding model (CDR3).
   python scripts/train/train_tcr_pmhc_binding.py --config configs/config-paired-cdr3-pmhc-binding.yml 
-  
+
   # finetune Paired TCR-pMHC binding model (CDR123).
   python scripts/train/train_tcr_pmhc_binding.py --config configs/config-paired-cdr123-pmhc-binding.yml
   ```
@@ -132,16 +132,13 @@ The following data and model checkpoints are available at [Zenodo](https://zenod
 ### Citation
 
 ```tex
-@article {Zhang2024.04.05.588255,
-	author = {Yumeng Zhang and Zhikang Wang and Yunzhe Jiang and Dene R Littler and Mark Gerstein and Anthony W Purcell and Jamie Rossjohn and Hong-Yu Ou and Jiangning Song},
-	title = {Epitope-anchored contrastive transfer learning for paired CD8+ T cell receptor-antigen recognition},
-	elocation-id = {2024.04.05.588255},
-	year = {2024},
-	doi = {10.1101/2024.04.05.588255},
-	publisher = {Cold Spring Harbor Laboratory},
-	URL = {https://www.biorxiv.org/content/early/2024/04/07/2024.04.05.588255},
-	eprint = {https://www.biorxiv.org/content/early/2024/04/07/2024.04.05.588255.full.pdf},
-	journal = {bioRxiv}
+@article{zhang2024epitope,
+  title={Epitope-anchored contrastive transfer learning for paired CD8+ T cell receptor--antigen recognition},
+  author={Yumeng Zhang and Zhikang Wang and Yunzhe Jiang and Dene R Littler and Mark Gerstein and Anthony W Purcell and Jamie Rossjohn and Hong-Yu Ou and Jiangning Song},
+  journal={Nature Machine Intelligence},
+  doi={10.1038/s42256-024-00913-8},
+  year={2024},
+  publisher={Nature Publishing Group UK London}
 }
 ```
 
