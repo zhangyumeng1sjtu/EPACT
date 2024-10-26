@@ -6,7 +6,7 @@ This repository contains the source code for the paper [**Epitope-anchored contr
 
 EPACT is developed by a divide-and-conquer paradigm that combines **pre-training** on TCR or pMHC data and **transfer learning** to predict TCR$\alpha\beta$-pMHC binding specificity and interaction conformation via **epitope-anchored** **contrastive** **learning**.
 
-### Colab Notebook `<a href="https://colab.research.google.com/github/zhangyumeng1sjtu/EPACT/blob/main/EPACT.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>``</a>`
+### Colab Notebook <a href="https://colab.research.google.com/github/zhangyumeng1sjtu/EPACT/blob/main/EPACT.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 ### Installation
 
@@ -55,10 +55,10 @@ The following data and model checkpoints are available at [Zenodo](https://zenod
   ```bash
   # pretrain epitope masked language model.
   python scripts/pretrain/pretrain_plm.py --config configs/config-pretrain-epitope-lm.yml
-
+  
   # pretrain paired cdr3 masked language model.
   python scripts/pretrain/pretrain_plm.py --config configs/config-pretrain-cdr3-lm.yml
-
+  
   # pretrain paired cdr123 masked language model.
   python scripts/pretrain/pretrain_plm.py --config configs/config-pretrain-cdr123-lm.yml
   ```
@@ -67,7 +67,7 @@ The following data and model checkpoints are available at [Zenodo](https://zenod
   ```bash
   # pretrain peptide-MHC binding affinity model.
   python scripts/pretrain/pretrain_pmhc_model.py --config configs/config-pmhc-binding.yml
-
+  
   # pretrain peptide-MHC eluted ligand model.
   python scripts/pretrain/pretrain_pmhc_model.py --config configs/config-pmhc-elution.yml
   ```
@@ -79,7 +79,7 @@ The following data and model checkpoints are available at [Zenodo](https://zenod
   ```bash
   # finetune Paired TCR-pMHC binding model (CDR3).
   python scripts/train/train_tcr_pmhc_binding.py --config configs/config-paired-cdr3-pmhc-binding.yml 
-
+  
   # finetune Paired TCR-pMHC binding model (CDR123).
   python scripts/train/train_tcr_pmhc_binding.py --config configs/config-paired-cdr123-pmhc-binding.yml
   ```
