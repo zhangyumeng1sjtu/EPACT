@@ -53,7 +53,7 @@ class PairedCDR3BatchConverter(object):
         else:
             tokens, chain_token_mask = paired_cdr3_batch_encoding(alpha_seq, beta_seq, self.tokenizer, batch_size, self.max_cdr3_le, False)
             
-        tokens, labels = self.tokenizer.mask_token(tokens, self.mask_prob, beta_token_mask=(chain_token_mask == 2).long(),
+        tokens, labels = self.tokenizer.mask_token(tokens, self.mask_prob, beta_token_mask=(chain_token_mask == 2),
                                                    beta_mask_prob=self.beta_mask_prob)
         
         return {
@@ -81,7 +81,7 @@ class PairedCDR123BatchConverter(object):
             tokens, chain_token_mask = paired_cdr123_batch_encoding(raw_batch, self.tokenizer, batch_size, self.max_cdr3_len, False)
             
         tokens, labels = self.tokenizer.mask_token(tokens, self.mask_prob,
-                                                   beta_token_mask=(chain_token_mask == 3) | (chain_token_mask == 6).long(),
+                                                   beta_token_mask=(chain_token_mask == 3) | (chain_token_mask == 6),
                                                    beta_mask_prob=self.beta_mask_prob)
         
         return {
